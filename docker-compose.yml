@@ -4,17 +4,13 @@ services:
     build: .
     ports:
     - "8080:8080"
-    volumes:
-      - ".:/build"
     environment:
       FLASK_ENV: development
   redist:
-    image: "redis:alpine"
+    image: "redis:latest"
   db:
-    image: postgres
-    restart: always
-    volumes:
-      - "dbdata:/var/lib/postgresql/data"
-
-volumes:
-  dbdata:
+    build: ./db/
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: U6ce;QoJ3WKRaZDDboEZ2zWY4yM

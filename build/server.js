@@ -33,17 +33,26 @@ app.post('/SignIn', function (req, res) {
                         if (err) {
                             console.log(err.stack);
                         } else {
-                            res.send(result.rows[0]);
+                            res.send({
+                                firstName: result.rows[0].firstname,
+                                lastName: result.rows[0].lastname,
+                                email: result.rows[0].email,
+                                username: result.rows[0].username
+                            });
                         }
                     });
                 } else {
                     res.send({
-                        error: "Invalid username or password."
+                        errorMessage: {
+                            signInError: "Invalid username or password."
+                        }
                     });
                 }
             } else {
                 res.send({
-                    error: "Invalid username or password."
+                    errorMessage: {
+                        signInError: "Invalid username or password."
+                    }
                 });
             }
         }
@@ -55,12 +64,12 @@ app.post('/SignUp', function(req, res) {
         if (err) {
             if (err.message == 'duplicate key value violates unique constraint "users_pkey"') {
                 res.send({
-                    error: {
-                        usernameError: "Username already exists. Please use a different username.",
-                        firstName: req.body.firstName,
-                        lastName: req.body.lastName,
-                        email: req.body.email
-                    }
+                    errorMessage: {
+                        usernameError: "Username already exists. Please use a different username.", 
+                    },
+                    firstName: req.body.firstName,
+                    lastName: req.body.lastName,
+                    email: req.body.email
                 });
             } else {
                 console.log(err.stack);

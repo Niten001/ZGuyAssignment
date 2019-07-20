@@ -4,6 +4,6 @@ COPY package*.json ./
 RUN npm install
 RUN npm install -g typescript
 COPY . ./
-RUN tsc --jsx react --target es6
+RUN tsc
 CMD [ "node", "server.js" ]
 EXPOSE 8080

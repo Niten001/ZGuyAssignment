@@ -1,9 +1,17 @@
 {
     "compilerOptions": {
         "moduleResolution": "node",
-        "allowSyntheticDefaultImports": true
+        "allowSyntheticDefaultImports": false,
+        "importHelpers": true,
+        "jsx": "react",
+        "target": "es6"
     },
+    "include": [
+        "./js/babel.min.js",
+        "./js/React/react.development.js",
+        "./js/React/react-dom.development.js"
+    ],
     "files": [
-        "./js/temp_index.tsx"
+        "js/index.tsx"
     ]
 }

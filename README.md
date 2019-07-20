@@ -15,5 +15,47 @@ docker-compose build
 docker-compose up
 ```
 
+#### Note
+
+Currently pointing at the src directory to point towards the build directory change the following in the "docker-compose.yml" file.
+
+Replace:
+```
+version: '3'
+services:
+  web:
+    build: ./src/
+    ports:
+    - "8080:8080"
+    environment:
+      FLASK_ENV: development
+  redist:
+    image: "redis:latest"
+  db:
+    build: ./src/db/
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: U6ce;QoJ3WKRaZDDboEZ2zWY4yM
+```
+with
+```version: '3'
+services:
+  web:
+    build: ./build/
+    ports:
+    - "8080:8080"
+    environment:
+      FLASK_ENV: development
+  redist:
+    image: "redis:latest"
+  db:
+    build: ./build/db/
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: U6ce;QoJ3WKRaZDDboEZ2zWY4yM
+```
+
 ## Authors
 - [@Niten001](https://github.com/Niten001) Timothy Martin

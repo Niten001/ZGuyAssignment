@@ -1,0 +1,9 @@
+{
+    "compilerOptions": {
+        "moduleResolution": "node",
+        "allowSyntheticDefaultImports": true
+    },
+    "files": [
+        "./js/temp_index.tsx"
+    ]
+}

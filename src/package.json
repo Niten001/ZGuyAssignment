@@ -19,10 +19,16 @@
   "homepage": "https://github.com/Niten001/zguy_assignment#readme",
   "dependencies": {
     "@types/jquery": "^3.3.30",
+    "@types/react": "^16.8.23",
+    "@types/react-dom": "^16.8.4",
     "bcrypt": "^3.0.6",
     "body-parser": "^1.19.0",
+    "csstype": "^2.6.6",
     "express": "^4.17.1",
-    "pg": "^7.11.0"
+    "pg": "^7.11.0",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "typescript": "^3.5.3"
   },
   "devDependencies": {
     "@babel/cli": "^7.5.0",
